@@ -1,19 +1,19 @@
 # Enterprise AI Knowledge Assistant using RAG & LLM
 
-An AI-powered enterprise knowledge assistant that enables semantic document search and context-aware question answering using Retrieval-Augmented Generation (RAG). The system retrieves relevant information from enterprise documents before generating responses, improving answer accuracy and reducing hallucinations.
+An AI-powered Enterprise Knowledge Assistant that enables semantic document search and context-aware question answering using Retrieval-Augmented Generation (RAG). The system retrieves relevant information from enterprise policy documents before generating responses, improving answer accuracy and reducing hallucinations.
 
 ---
 
 ## Features
 
-- Upload and process PDF and TXT documents
-- Automatic text chunking and preprocessing
-- Generate semantic embeddings using Sentence Transformers
-- Store embeddings in a FAISS vector database
-- Perform semantic similarity search
-- Context-aware question answering with FLAN-T5
-- REST API for document ingestion and querying
-- Improved response quality through Retrieval-Augmented Generation (RAG)
+- PDF document ingestion
+- Automatic document preprocessing and chunking
+- Semantic embedding generation
+- FAISS vector database for efficient retrieval
+- Context-aware question answering using Retrieval-Augmented Generation (RAG)
+- Enterprise policy document search
+- REST API built with Flask
+- Fast semantic similarity search
 
 ---
 
@@ -29,43 +29,29 @@ An AI-powered enterprise knowledge assistant that enables semantic document sear
 
 ---
 
-## System Architecture
-
-```
-Documents
-     │
-     ▼
-Text Chunking
-     │
-     ▼
-Sentence Embeddings
-     │
-     ▼
-FAISS Vector Store
-     │
-     ▼
-Semantic Retrieval
-     │
-     ▼
-FLAN-T5 LLM
-     │
-     ▼
-Generated Answer
-```
-
----
-
 ## Project Structure
 
-```
+```text
 enterprise-ai-knowledge-assistant-rag-llm/
 │
 ├── app.py
+├── ingest.py
 ├── requirements.txt
+├── documents.pkl
+├── vector_store.index
 ├── data/
-├── embeddings/
-├── vector_store/
-├── utils/
+│   ├── email_setup.pdf
+│   ├── holidays_policy.pdf
+│   ├── hr_policy.pdf
+│   ├── it_support.pdf
+│   ├── laptop_policy.pdf
+│   ├── onboarding.pdf
+│   ├── salary_policy.pdf
+│   ├── software_installation.pdf
+│   └── vpn_policy.pdf
+├── vectorstore/
+│   ├── index.faiss
+│   └── index.pkl
 └── README.md
 ```
 
@@ -80,18 +66,32 @@ cd enterprise-ai-knowledge-assistant-rag-llm
 
 pip install -r requirements.txt
 
+python ingest.py
+
 python app.py
 ```
 
 ---
 
+## How It Works
+
+1. Load enterprise policy documents.
+2. Split documents into smaller text chunks.
+3. Generate embeddings using Sentence Transformers.
+4. Store embeddings in a FAISS vector database.
+5. Retrieve the most relevant document chunks based on user queries.
+6. Generate accurate, context-aware responses using an LLM.
+
+---
+
 ## Future Enhancements
 
+- Support additional document formats (DOCX, TXT)
 - LangGraph integration
 - Agentic AI workflows
 - ChromaDB support
-- Streaming LLM responses
 - Cloud deployment (AWS/Azure)
+- User authentication and role-based access
 
 ---
 
