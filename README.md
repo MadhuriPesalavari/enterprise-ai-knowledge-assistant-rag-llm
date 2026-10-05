@@ -104,6 +104,7 @@ GitHub: https://github.com/MadhuriPesalavari
 LinkedIn: https://linkedin.com/in/pesalavari-madhuri
 ## Query Flow
 
+```text
 User Query
    ↓
 Flask REST API
