@@ -102,3 +102,18 @@ python app.py
 GitHub: https://github.com/MadhuriPesalavari
 
 LinkedIn: https://linkedin.com/in/pesalavari-madhuri
+## Query Flow
+
+User Query
+   ↓
+Flask REST API
+   ↓
+Generate Query Embedding
+   ↓
+FAISS Similarity Search
+   ↓
+Retrieve Relevant Policy Chunks
+   ↓
+FLAN-T5
+   ↓
+Context-Aware Answer
